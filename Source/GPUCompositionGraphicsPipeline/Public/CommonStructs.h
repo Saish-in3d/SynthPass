@@ -33,7 +33,7 @@ struct FCompositorOutputSpecs
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = "GPU Composition")
-	EVideoResolution OutputResolution;
+	EVideoResolution OutputResolution = EVideoResolution::HD_720p;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = "GPU Composition")
 	FIntVector2 CustomOutputResolutionSize = FIntVector2(500,500);
@@ -42,10 +42,10 @@ struct FCompositorOutputSpecs
 	float TargetFPS = 50;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = "GPU Composition")
-	ERenderTargetPixelFormat PixelFormat;
-	
+	ERenderTargetPixelFormat PixelFormat = ERenderTargetPixelFormat::RTF_R8;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = "GPU Composition")
-	UTexture2D* SampleTexture;
+	UTexture2D* SampleTexture = nullptr;
 };
 
 static EPixelFormat GetPixelFormatFromRenderTargetFormat(ERenderTargetPixelFormat PixelFormat)

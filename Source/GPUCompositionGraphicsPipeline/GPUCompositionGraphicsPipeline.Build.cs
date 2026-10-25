@@ -35,7 +35,8 @@ public class GPUCompositionGraphicsPipeline : ModuleRules
 		
 		string EngineDir = Path.GetFullPath(Target.RelativeEnginePath);
 
-		PrivateIncludePaths.AddRange(
+		// Public because CommonStructs.h includes SceneTextureParameters.h, so dependent modules need these paths too
+		PublicIncludePaths.AddRange(
 			new string[] {
 				// Including to Find shader utilities path
 				Path.Combine(EngineDir, "Source/Runtime/Renderer/Private"),
